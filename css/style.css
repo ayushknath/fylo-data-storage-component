@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+
+:root {
+  --borderRadiusLarge: 5rem;
+  --borderRadius: 8px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+  background: hsl(229, 57%, 11%) url("../images/bg-desktop.png") no-repeat fixed
+    bottom -30% center;
+  background-size: contain;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Utility classes */
+.bold {
+  font-weight: bold;
+}
+
+.font-xl {
+  font-size: 2rem;
+}
+
+/* Challenge container */
+.challenge {
+  width: 930px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 2rem;
+  align-items: end;
+}
+
+/* First section */
+.first-section {
+  padding: 2.5rem;
+  border-radius: var(--borderRadius);
+  border-top-right-radius: var(--borderRadiusLarge);
+  background-color: hsl(228, 56%, 26%);
+}
+
+.first-section .logo {
+  margin-bottom: 2rem;
+}
+
+.first-section .upload-options {
+  display: flex;
+  align-items: center;
+}
+
+.first-section .upload-options > * {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--borderRadius);
+  background-color: hsl(229, 57%, 11%);
+  transition: 0.3s background-color;
+}
+
+.first-section .upload-options > *:not(:last-of-type) {
+  margin-right: 1rem;
+}
+
+.first-section .upload-options > *:hover {
+  cursor: pointer;
+  background-color: hsl(243, 100%, 93%);
+}
+
+/* Second section */
+.second-section {
+  position: relative;
+  padding: 2.5rem 2.5rem 4rem;
+  color: #fff;
+  border-radius: var(--borderRadius);
+  background-color: hsl(228, 56%, 26%);
+}
+
+.second-section .storage-info {
+  margin-bottom: 1rem;
+}
+
+.second-section .progress-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  border-radius: 10rem;
+  background-color: hsl(229, 57%, 11%);
+}
+
+.second-section .progress-indicator {
+  position: relative;
+  left: 3px;
+  width: 70%;
+  height: 14px;
+  border-radius: 1rem;
+  background-image: linear-gradient(
+    90deg,
+    hsl(6, 100%, 80%),
+    hsl(335, 100%, 65%)
+  );
+}
+
+.second-section .indicator-cap {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.progress-bar .storage-min,
+.progress-bar .storage-max {
+  position: absolute;
+  bottom: -2rem;
+}
+
+.progress-bar .storage-min {
+  left: 0;
+}
+
+.progress-bar .storage-max {
+  right: 0;
+}
+
+/* Unused storage indicator */
+.storage-left-overhead {
+  position: absolute;
+  top: -3rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 179px;
+  height: 72px;
+  color: initial;
+  border-radius: var(--borderRadius);
+  border-bottom-right-radius: 0;
+  background-color: #fff;
+}
+
+.storage-left-overhead::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1rem;
+  width: 0;
+  height: 0;
+  border-top: 18px solid white;
+  border-left: 18px solid transparent;
+}
+
+.storage-left-overhead .storage-left {
+  display: flex;
+  align-items: center;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.storage-left-overhead .storage-left > span:nth-child(1) {
+  color: #000;
+  margin-right: 8px;
+}
+
+.storage-left-overhead .storage-left > span:nth-child(2) {
+  font-size: 12px;
+}
+
+/* Media query for mobile */
+@media only screen and (max-width: 375px) {
+  body {
+    height: 100vh;
+    background: url("../images/bg-mobile.png") no-repeat fixed center center;
+    background-size: cover;
+  }
+
+  .challenge {
+    width: 100%;
+    margin: initial;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: initial;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* First section */
+  .first-section {
+    padding: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .first-section .logo {
+    width: 130px;
+    margin-bottom: 2rem;
+  }
+
+  .first-section .upload-options > * {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .first-section .upload-options > *:hover {
+    cursor: pointer;
+    background-color: hsl(243, 100%, 93%);
+  }
+
+  /* Second section */
+  .second-section {
+    padding: 2rem 2rem 5.3rem;
+  }
+
+  .second-section .storage-info {
+    text-align: center;
+  }
+
+  /* Unused storage indicator */
+  .storage-left-overhead {
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-right-radius: var(--borderRadius);
+  }
+
+  .storage-left-overhead::after {
+    display: none;
+  }
+}
